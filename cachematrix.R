@@ -3,18 +3,21 @@
 
 ## Write a short comment describing this function
 
+## This Function will make a cache matrix and set inv as null
 makeCacheMatrix<-function(x=matrix()){
-inv<-NULL
-set<-function(y){
+inv<-NULL                                                         #assume that matrix is invertible
+set<-function(y){                                                 #setting the value of the matrix
 x<<-y
 inv<<-NULL
 }
 get<-function() {x}
 setInverse<-function(inverse) {inv<<-inverse}
 getInverse<-function() {inv}
-list(set=set,get=get,setInverse=setInverse,getInverse=getInverse)
+list(set=set,get=get,setInverse=setInverse,getInverse=getInverse)  # Creates list of functions
 }
-cacheSolve<-function(x,...){
+
+## This functionn is cacheSolve and returns the matrix to inverse
+cacheSolve<-function(x,...){                                       ## Return a matrix that is the inverse of 'x'
 inv<-x$getInverse()
 if(!is.null(inv)){
 message("getting cached data")
@@ -26,6 +29,7 @@ x$setInverse(inv)
 inv
 }
 
+# Test the function
 source("Caching the Inverse of a Matrix.R")
 a<-makeCacheMatrix(matrix(c(23,12,19,98),nrow=2,ncol=2))
 a$get()
