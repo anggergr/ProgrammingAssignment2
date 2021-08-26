@@ -6,31 +6,31 @@
 ## This Function will make a cache matrix and set inv as null
 makeCacheMatrix<-function(x=matrix()){
 #assume that matrix is invertible
-inv<-NULL
+      inv<-NULL
 #setting the value of the matrix
-set<-function(y){                                                 
-x<<-y
-inv<<-NULL
+      set<-function(y){                                                 
+      x<<-y
+      inv<<-NULL
 }
-get<-function() {x}
-setInverse<-function(inverse) {inv<<-inverse}
-getInverse<-function() {inv}
+      get<-function() {x}
+      setInverse<-function(inverse) {inv<<-inverse}
+      getInverse<-function() {inv}
 # Creates list of functions
-list(set=set,get=get,setInverse=setInverse,getInverse=getInverse)  
+      list(set=set,get=get,setInverse=setInverse,getInverse=getInverse)  
 }
 
 ## This functionn is cacheSolve and returns the matrix to inverse
 cacheSolve<-function(x,...){                                       '
 ## Return a matrix that is the inverse of 'x
-inv<-x$getInverse()
-if(!is.null(inv)){
-message("getting cached data")
-return(inv)
+      inv<-x$getInverse()
+      if(!is.null(inv)){
+      message("getting cached data")
+      return(inv)
 }
-mat<-x$get()
-inv<-solve(mat,...)
-x$setInverse(inv)
-inv
+      mat<-x$get()
+      inv<-solve(mat,...)
+      x$setInverse(inv)
+      inv
 }
 
 # Test the function
