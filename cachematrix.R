@@ -1,4 +1,14 @@
+## Put comments here that give an overall description of what your
+## functions do
+## MakeCacheMatrix - creates list with matrix getter and setter, and with
+## inverse matrix getter and setter
+## cacheSolve - gets cached inverse value if exists, otherwise computes it
+
+## Write a short comment describing this function
+## Create cache-supported matrix
+## x is an empty matrix by default
 ## This Function will make a cache matrix and set inv as null
+
 makeCacheMatrix<-function(x=matrix()){
   #assume that matrix is invertible
   inv<-NULL
